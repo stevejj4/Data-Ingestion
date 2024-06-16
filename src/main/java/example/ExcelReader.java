@@ -47,6 +47,7 @@ public class ExcelReader {
                     double id = row.getCell(1).getNumericCellValue();
                     String email = row.getCell(2).getStringCellValue();
 
+                    //get add
                     stmt.setString(1, name);
                     stmt.setInt(2, (int) id);
                     stmt.setString(3, email);
