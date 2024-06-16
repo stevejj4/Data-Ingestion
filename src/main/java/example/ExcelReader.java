@@ -10,9 +10,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class sample {
+public class ExcelReader {
     public static void main(String[] args) {
-        String excelFilePath = System.getProperty("user.dir") + "\\files\\Members.xlsx";
+        String excelFilePath = System.getProperty("user.dir") + "\\Resources\\Members.xlsx";
         File excelFile = new File(excelFilePath);
         
         try (FileInputStream fis = new FileInputStream(excelFile); 
