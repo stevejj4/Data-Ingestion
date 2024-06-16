@@ -36,7 +36,7 @@ public class ExcelReader {
             int rows = sheet.getLastRowNum();
             int cols = sheet.getRow(0).getLastCellNum();  // Assuming first row exists and is used for column count
             
-            String sql = "INSERT INTO members (name, age, email) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO members (name, id, email) VALUES (?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 for (int r = 1; r <= rows; r++) {  // Assuming first row is header
                     XSSFRow row = sheet.getRow(r);
@@ -44,11 +44,11 @@ public class ExcelReader {
                         continue; // Skip null rows
                     }
                     String name = row.getCell(0).getStringCellValue();
-                    double age = row.getCell(1).getNumericCellValue();
+                    double id = row.getCell(1).getNumericCellValue();
                     String email = row.getCell(2).getStringCellValue();
 
                     stmt.setString(1, name);
-                    stmt.setInt(2, (int) age);
+                    stmt.setInt(2, (int) id);
                     stmt.setString(3, email);
                     stmt.addBatch();
                 }
